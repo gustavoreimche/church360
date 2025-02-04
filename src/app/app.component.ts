@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  imports: [RouterOutlet],
+  template: `<router-outlet />`,
+  providers: [],
 })
-export class AppComponent {
-  title = 'church360';
-}
+export class AppComponent {}

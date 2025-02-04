@@ -7,14 +7,7 @@ export default [
     ignores: ['**/dist'],
   },
   {
-    files: [
-      '**/*.ts',
-      '**/*.tsx',
-      '**/*.js',
-      '**/*.jsx',
-      '**/*.cjs',
-      '**/*.mjs',
-    ],
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
     // Override or add rules here
     rules: {},
   },
@@ -35,10 +28,11 @@ export default [
         'error',
         {
           type: 'element',
-          prefix: 'app',
+          prefix: ['app', 'lib'],
           style: 'kebab-case',
         },
       ],
+      '@angular-eslint/component-class-suffix': ['error', { suffixes: ['Component', 'Page'] }],
     },
   },
   {
