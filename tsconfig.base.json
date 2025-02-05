@@ -14,9 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@church360/ng-supabase": ["libs/ng-supabase/src/index.ts"]
-    }
   },
   "exclude": ["node_modules", "tmp"]
 }

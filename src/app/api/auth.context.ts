@@ -1,12 +1,12 @@
 import { inject, Injectable } from '@angular/core';
-import { NgSupabase } from '@church360/ng-supabase';
 import { User } from '@supabase/supabase-js';
 import { from, map, Observable, tap } from 'rxjs';
 import { UserService } from '../services/user.service';
+import { SupabaseService } from '../supabase/supabase.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthContext {
-  supabase = inject(NgSupabase);
+  supabase = inject(SupabaseService);
   userService = inject(UserService);
 
   signIn(email: string, password: string): Observable<User> {
@@ -22,5 +22,15 @@ export class AuthContext {
 
   authenticatedUser(): Observable<User | null> {
     return from(this.supabase.auth.getUser()).pipe(map(({ data }) => data.user));
+  }
+
+  logout(): void {
+    this.supabase.auth.signOut();
+    localStorage.clear();
+  }
+
+  async isAuthenticated(): Promise<boolean> {
+    const result = await this.supabase.auth.getSession();
+    return !!result.data.session;
   }
 }

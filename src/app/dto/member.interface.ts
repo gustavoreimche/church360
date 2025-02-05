@@ -1,7 +1,7 @@
 export interface IMember {
   id: number;
   email: string;
-  user_id: string;
+  userId: string;
   nome: string;
   dataMembro: Date;
   dataNascimento: Date;

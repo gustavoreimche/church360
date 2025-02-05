@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { SupabaseClient } from '@supabase/supabase-js';
-import { DeleteParams, SelectParams, UpdateParams, UpsertParams } from './ng-supabase.types';
+import { DeleteParams, SelectParams, UpdateParams, UpsertParams } from './supabase.types';
+import { SupabaseErrorService } from './supabase-error.service';
 
 @Injectable({ providedIn: 'root' })
-export class NgSupabase {
+export class SupabaseService {
   client!: SupabaseClient;
+  errorHandler = inject(SupabaseErrorService);
 
   get auth() {
     return this.client.auth;

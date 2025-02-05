@@ -32,7 +32,8 @@ export default [
           style: 'kebab-case',
         },
       ],
-      '@angular-eslint/component-class-suffix': ['error', { suffixes: ['Component', 'Page'] }],
+      '@angular-eslint/component-class-suffix': ['error', { suffixes: ['Component', 'Page', 'Layout'] }],
+      '@angular-eslint/template/label-has-associated-control': 'off',
     },
   },
   {

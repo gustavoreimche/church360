@@ -7,8 +7,10 @@ import pt from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
+import { icons } from './icons-provider';
 import { environment } from '../../environments/environment';
-import { NgSupabaseModule } from '@church360/ng-supabase';
+import { NzIconModule, provideNzIcons } from 'ng-zorro-antd/icon';
+import { SupabaseModule } from './supabase/supabase.module';
 
 registerLocaleData(pt);
 
@@ -18,8 +20,10 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideNzI18n(pt_BR),
     importProvidersFrom(FormsModule),
+    importProvidersFrom(NzIconModule),
     provideAnimationsAsync(),
     provideHttpClient(),
-    importProvidersFrom(NgSupabaseModule.initClient({ url: environment.supabaseUrl, key: environment.supabaseKey })),
+    provideNzIcons(icons),
+    importProvidersFrom(SupabaseModule.initClient({ url: environment.supabaseUrl, key: environment.supabaseKey })),
   ],
 };
