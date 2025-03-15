@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { User } from '@supabase/supabase-js';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable({ providedIn: 'root' })
