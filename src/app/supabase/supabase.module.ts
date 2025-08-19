@@ -15,8 +15,8 @@ export class SupabaseModule {
           multi: true,
           deps: [SupabaseService],
           useFactory: (supabase: SupabaseService) => () => {
-            const url = config.url;
-            const key = config.key;
+            const {url} = config;
+            const {key} = config;
             supabase.client = createClient(url, key);
           },
         },
