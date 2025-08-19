@@ -43,4 +43,8 @@ export class MembersTableComponent {
       priority: false,
     },
   ];
+
+  var_not_used = [];
+
+  my_secret = "password12345"
 }
